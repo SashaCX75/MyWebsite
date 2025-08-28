@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>App Privacy Policy</title>
   <meta name="color-scheme" content="light dark">
   <style>
@@ -16,7 +16,6 @@
       --ring: rgba(96,165,250,.45);
       --shadow: 0 10px 40px rgba(2, 6, 23, .5);
     }
-
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #f7fafc;
@@ -29,7 +28,6 @@
         --shadow: 0 12px 30px rgba(15, 23, 42, .08);
       }
     }
-
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -43,157 +41,72 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-
-    .wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 4rem 1.25rem 6rem;
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--accent), #a855f7);
-      color: white;
-      border-radius: 1.25rem;
-      padding: 2rem 2rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    h1 {
-      margin: 0 0 .25rem 0;
-      font-size: clamp(1.75rem, 3.2vw + .5rem, 3rem);
-      letter-spacing: .5px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 1rem;
-      padding: 1.5rem 1.25rem;
-      margin-top: 1.25rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(148,163,184,.18);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    @media (min-width: 720px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .5rem .75rem;
-      border-radius: 999px;
-      background: var(--bg-soft);
-      border: 1px solid rgba(148,163,184,.22);
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
-    .kicker {
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 700;
-      font-size: .78rem;
-      color: var(--muted);
-      margin: .25rem 0 1rem;
-    }
-
-    ul { margin: .5rem 0 0 1.2rem; padding: 0; }
-    li { margin: .35rem 0; }
+    .wrapper { max-width: 960px; margin: 0 auto; padding: 4rem 1.25rem 6rem; }
+    header { background: linear-gradient(135deg, var(--accent), #a855f7); color: white; border-radius: 1.25rem; padding: 2rem 2rem; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    h1 { margin: 0 0 .25rem 0; font-size: clamp(1.75rem, 3.2vw + .5rem, 3rem); letter-spacing: .5px; }
+    .card { background: var(--card); border-radius: 1rem; padding: 1.5rem 1.25rem; margin-top: 1.25rem; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.18); }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    .badge { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .75rem; border-radius: 999px; background: var(--bg-soft); border: 1px solid rgba(148,163,184,.22); font-size: .9rem; color: var(--muted); }
+    .kicker { text-transform: uppercase; letter-spacing: .14em; font-weight: 700; font-size: .78rem; color: var(--muted); margin: .25rem 0 1rem; }
+    ul { margin: .5rem 0 0 1.2rem; padding: 0; } li { margin: .35rem 0; }
     .muted { color: var(--muted); }
-
-    .footer {
-      display: flex; flex-wrap: wrap; gap: .75rem; align-items: center;
-      justify-content: space-between; margin-top: 1.25rem;
-      border-top: 1px solid rgba(148,163,184,.18);
-      padding-top: 1rem;
-      font-size: .95rem;
-      color: var(--muted);
-    }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: .4rem;
-      background: transparent; color: white;
-      border: 1px solid rgba(255,255,255,.4);
-      padding: .4rem .6rem; border-radius: .75rem; cursor: pointer;
-      transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
-      box-shadow: 0 0 0 0 var(--ring);
-      text-decoration: none;
-      font-size: .8rem;
-    }
-    .btn:hover { background: rgba(255,255,255,.1); }
-    .btn:focus { outline: none; box-shadow: 0 0 0 6px var(--ring); }
-
+    .footer { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; margin-top: 1.25rem; border-top: 1px solid rgba(148,163,184,.18); padding-top: 1rem; font-size: .95rem; color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; background: transparent; color: white; border: 1px solid rgba(255,255,255,.4); padding: .45rem .8rem; border-radius: .6rem; cursor: pointer; transition: transform .08s ease, box-shadow .2s ease, background .2s ease; box-shadow: 0 0 0 0 var(--ring); text-decoration: none; font-size: .9rem; }
+    .btn:hover { background: rgba(255,255,255,.1); } .btn:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
     .title-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .lang-switch { display:flex; gap:.4rem; }
-    .flag-icon { width:16px; height:10px; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.2); }
+    .lang-switch { display:flex; gap:.5rem; }
+    .flag-icon { width:18px; height:12px; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.2); }
   </style>
 </head>
 <body>
   <div class="wrapper">
     <header>
       <div class="title-row">
-        <h1>App Privacy Policy</h1>
+        <h1 id="page-title">App Privacy Policy</h1>
         <div class="lang-switch">
-          <a class="btn" href="?lang=ru" aria-label="Switch to Russian">
-            <img src="https://flagcdn.com/w20/ru.png" alt="RU" class="flag-icon" />
-            ru
-          </a>
-          <a class="btn" href="?lang=uk" aria-label="Switch to Ukrainian">
-            <img src="https://flagcdn.com/w20/ua.png" alt="UA" class="flag-icon" />
-            ua
-          </a>
+          <button class="btn" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" class="flag-icon"> ru</button>
+          <button class="btn" data-lang="uk"><img src="https://flagcdn.com/w20/ua.png" class="flag-icon"> ua</button>
         </div>
       </div>
     </header>
 
     <section id="details" class="card">
       <div class="badge" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         Privacy First
       </div>
-      <h2 class="kicker">Overview</h2>
-      <p>This application does not collect, receive, store, or process any confidential user data or device information.</p>
-      <ul>
+      <h2 class="kicker" id="overview-title">Overview</h2>
+      <p id="overview-text">This is the privacy policy of the application. The app does not collect, receive, store, or process any confidential user data, nor any data from the user’s device.</p>
+      <ul id="overview-list">
         <li>We do not perform tracking or use identifiers to follow the user.</li>
         <li>No data is transferred to third parties or leaves the device.</li>
-        <li>Access to device functions is requested only when needed for a specific feature.</li>
+        <li>Access to device functions is requested only when needed for a specific feature, and the information is never sent anywhere.</li>
       </ul>
     </section>
 
     <div class="grid">
       <section class="card">
-        <h3 class="kicker">Data Collection</h3>
-        <p>The app does not collect personal, sensitive, or technical data about the user or their device.</p>
+        <h3 class="kicker" id="collection-title">Data Collection</h3>
+        <p id="collection-text">None. The app does not collect personal, sensitive, or technical data about the user or their device.</p>
       </section>
-
       <section class="card">
-        <h3 class="kicker">Processing and Storage</h3>
-        <p>Any data generated during use remains locally in the device’s memory and is not saved.</p>
+        <h3 class="kicker" id="processing-title">Processing and Storage</h3>
+        <p id="processing-text">None. Any data generated during use remains locally in the device’s memory and is not saved.</p>
       </section>
-
       <section class="card">
-        <h3 class="kicker">Sharing with Third Parties</h3>
-        <p>The app does not send any information to servers or share it with third parties.</p>
+        <h3 class="kicker" id="sharing-title">Sharing with Third Parties</h3>
+        <p id="sharing-text">None. The app does not send any information to servers or share it with third parties.</p>
       </section>
-
       <section class="card">
-        <h3 class="kicker">Contacts</h3>
-        <p class="muted">Contact: <a href="mailto:sashacx75@gmail.com">sashacx75@gmail.com</a></p>
+        <h3 class="kicker" id="contacts-title">Contacts</h3>
+        <p class="muted" id="contacts-text">For privacy-related questions, you can contact the developer at <a href="mailto:sashacx75@gmail.com">sashacx75@gmail.com</a>.</p>
       </section>
     </div>
 
     <section class="card">
-      <h3 class="kicker">Effective Date</h3>
-      <p class="muted">Effective from <time datetime="2025-08-28">August 28, 2025</time>. Updates will appear on this page.</p>
+      <h3 class="kicker" id="effective-title">Effective Date</h3>
+      <p class="muted" id="effective-text">This policy is effective from <time datetime="2025-08-28">August 28, 2025</time> and may be updated as necessary. All changes will be reflected on this page.</p>
     </section>
 
     <div class="footer">
@@ -202,8 +115,82 @@
     </div>
   </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+<script>
+  // Установка текущего года в футере
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Тексты на разных языках
+  const texts = {
+    en: {
+      title: 'App Privacy Policy',
+      overview: 'This is the privacy policy of the application. The app does not collect, receive, store, or process any confidential user data, nor any data from the user’s device.',
+      overviewList: [
+        'We do not perform tracking or use identifiers to follow the user.',
+        'No data is transferred to third parties or leaves the device.',
+        'Access to device functions is requested only when needed for a specific feature, and the information is never sent anywhere.'
+      ],
+      collection: 'None. The app does not collect personal, sensitive, or technical data about the user or their device.',
+      processing: 'None. Any data generated during use remains locally in the device’s memory and is not saved.',
+      sharing: 'None. The app does not send any information to servers or share it with third parties.',
+      contacts: 'For privacy-related questions, you can contact the developer at sashacx75@gmail.com.',
+      effective: 'This policy is effective from August 28, 2025 and may be updated as necessary. All changes will be reflected on this page.'
+    },
+    ru: {
+      title: 'Политика конфиденциальности приложения',
+      overview: 'Это политика конфиденциальности приложения. Приложение не собирает, не получает, не хранит и не обрабатывает конфиденциальные данные пользователя или устройства.',
+      overviewList: [
+        'Мы не отслеживаем пользователя и не используем идентификаторы.',
+        'Данные не передаются третьим лицам и не покидают устройство.',
+        'Доступ к функциям устройства запрашивается только при необходимости для конкретной функции.'
+      ],
+      collection: 'Приложение не собирает личные, чувствительные или технические данные о пользователе или устройстве.',
+      processing: 'Любые данные, созданные во время использования, остаются локально в памяти устройства и не сохраняются.',
+      sharing: 'Приложение не отправляет информацию на серверы и не передает её третьим лицам.',
+      contacts: 'По вопросам конфиденциальности вы можете связаться с разработчиком: sashacx75@gmail.com.',
+      effective: 'Политика действует с 28 августа 2025 года и может быть обновлена при необходимости. Все изменения будут отображаться на этой странице.'
+    },
+    uk: {
+      title: 'Політика конфіденційності додатку',
+      overview: 'Ця політика конфіденційності додатку. Додаток не збирає, не отримує, не зберігає та не обробляє конфіденційні дані користувача або пристрою.',
+      overviewList: [
+        'Ми не відстежуємо користувача та не використовуємо ідентифікатори.',
+        'Дані не передаються третім особам і не залишають пристрій.',
+        'Доступ до функцій пристрою запитується лише за потребою для конкретної функції.'
+      ],
+      collection: 'Додаток не збирає персональні, чутливі або технічні дані користувача або пристрою.',
+      processing: 'Будь-які дані, створені під час використання, залишаються локально в пам’яті пристрою і не зберігаються.',
+      sharing: 'Додаток не надсилає інформацію на сервери і не передає її третім особам.',
+      contacts: 'Щодо конфіденційності можна звертатися до розробника: sashacx75@gmail.com.',
+      effective: 'Політика діє з 28 серпня 2025 року і може бути оновлена при необхідності. Усі зміни будуть відображені на цій сторінці.'
+    }
+  };
+
+  // Функция обновления текста страницы
+  function updateLanguage(lang) {
+    const t = texts[lang] || texts.en;
+    document.getElementById('page-title').textContent = t.title;
+    document.getElementById('overview-text').textContent = t.overview;
+    
+    const overviewListEl = document.getElementById('overview-list');
+    overviewListEl.innerHTML = '';
+    t.overviewList.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      overviewListEl.appendChild(li);
+    });
+
+    document.getElementById('collection-text').textContent = t.collection;
+    document.getElementById('processing-text').textContent = t.processing;
+    document.getElementById('sharing-text').textContent = t.sharing;
+    document.getElementById('contacts-text').textContent = t.contacts;
+    document.getElementById('effective-text').textContent = t.effective;
+  }
+
+  // Назначение обработчиков клика на кнопки
+  document.querySelectorAll('.lang-switch .btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      updateLanguage(lang);
+    });
+  });
+</script>

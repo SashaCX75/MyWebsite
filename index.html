@@ -76,12 +76,6 @@
       letter-spacing: .5px;
     }
 
-    .subtitle {
-      margin: 0;
-      opacity: .95;
-      font-size: clamp(.95rem, .6vw + .75rem, 1.125rem);
-    }
-
     .card {
       background: var(--card);
       border-radius: 1rem;
@@ -143,14 +137,15 @@
     .btn {
       display: inline-flex; align-items: center; gap: .5rem;
       background: transparent; color: white;
-      border: 1px solid rgba(255,255,255,.6);
-      padding: .6rem 1rem; border-radius: .875rem; cursor: pointer;
+      border: 1px solid rgba(255,255,255,.4);
+      padding: .45rem .8rem; border-radius: .6rem; cursor: pointer;
       transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
       box-shadow: 0 0 0 0 var(--ring);
       text-decoration: none;
+      font-size: .9rem;
     }
     .btn:hover { background: rgba(255,255,255,.1); }
-    .btn:focus { outline: none; box-shadow: 0 0 0 6px var(--ring); }
+    .btn:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
 
     .title-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .lang-switch { display:flex; gap:.5rem; }
@@ -163,7 +158,6 @@
       <div class="title-row">
         <div>
           <h1>App Privacy Policy</h1>
-          <p class="subtitle">Transparent. Minimal. Respectful by design.</p>
         </div>
         <div class="lang-switch">
           <a class="btn" href="?lang=ru" aria-label="Switch to Russian">

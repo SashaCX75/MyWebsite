@@ -60,16 +60,6 @@
       overflow: hidden;
     }
 
-    header::after {
-      content: "";
-      position: absolute;
-      inset: -40% -20% auto auto;
-      width: 480px; height: 480px;
-      background: radial-gradient(closest-side, rgba(255,255,255,.35), transparent 65%);
-      filter: blur(6px);
-      transform: rotate(20deg);
-    }
-
     h1 {
       margin: 0 0 .25rem 0;
       font-size: clamp(1.75rem, 3.2vw + .5rem, 3rem);
@@ -116,13 +106,8 @@
       margin: .25rem 0 1rem;
     }
 
-    ul {
-      margin: .5rem 0 0 1.2rem;
-      padding: 0;
-    }
-
+    ul { margin: .5rem 0 0 1.2rem; padding: 0; }
     li { margin: .35rem 0; }
-
     .muted { color: var(--muted); }
 
     .footer {
@@ -135,30 +120,28 @@
     }
 
     .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
+      display: inline-flex; align-items: center; gap: .4rem;
       background: transparent; color: white;
       border: 1px solid rgba(255,255,255,.4);
-      padding: .45rem .8rem; border-radius: .6rem; cursor: pointer;
+      padding: .4rem .6rem; border-radius: .75rem; cursor: pointer;
       transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
       box-shadow: 0 0 0 0 var(--ring);
       text-decoration: none;
-      font-size: .9rem;
+      font-size: .8rem;
     }
     .btn:hover { background: rgba(255,255,255,.1); }
-    .btn:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+    .btn:focus { outline: none; box-shadow: 0 0 0 6px var(--ring); }
 
     .title-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .lang-switch { display:flex; gap:.5rem; }
-    .flag-icon { width:18px; height:12px; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.2); }
+    .lang-switch { display:flex; gap:.4rem; }
+    .flag-icon { width:16px; height:10px; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.2); }
   </style>
 </head>
 <body>
   <div class="wrapper">
     <header>
       <div class="title-row">
-        <div>
-          <h1>App Privacy Policy</h1>
-        </div>
+        <h1>App Privacy Policy</h1>
         <div class="lang-switch">
           <a class="btn" href="?lang=ru" aria-label="Switch to Russian">
             <img src="https://flagcdn.com/w20/ru.png" alt="RU" class="flag-icon" />
@@ -172,56 +155,45 @@
       </div>
     </header>
 
-    <section id="details" class="card" style="margin-top:1.5rem">
+    <section id="details" class="card">
       <div class="badge" aria-hidden="true">
-        <!-- shield icon -->
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Privacy First
       </div>
       <h2 class="kicker">Overview</h2>
-      <p>
-        This is the privacy policy of the application. The app does not collect, receive, store, or process any confidential user data, nor any data from the user’s device.
-      </p>
+      <p>This application does not collect, receive, store, or process any confidential user data or device information.</p>
       <ul>
         <li>We do not perform tracking or use identifiers to follow the user.</li>
         <li>No data is transferred to third parties or leaves the device.</li>
-        <li>Access to device functions is requested only when needed for a specific feature, and the information is never sent anywhere.</li>
+        <li>Access to device functions is requested only when needed for a specific feature.</li>
       </ul>
     </section>
 
     <div class="grid">
       <section class="card">
         <h3 class="kicker">Data Collection</h3>
-        <p>
-          None. The app does not collect personal, sensitive, or technical data about the user or their device.
-        </p>
+        <p>The app does not collect personal, sensitive, or technical data about the user or their device.</p>
       </section>
 
       <section class="card">
         <h3 class="kicker">Processing and Storage</h3>
-        <p>
-          None. Any data generated during use remains locally in the device’s memory and is not saved.
-        </p>
+        <p>Any data generated during use remains locally in the device’s memory and is not saved.</p>
       </section>
 
       <section class="card">
         <h3 class="kicker">Sharing with Third Parties</h3>
-        <p>
-          None. The app does not send any information to servers or share it with third parties.
-        </p>
+        <p>The app does not send any information to servers or share it with third parties.</p>
       </section>
 
       <section class="card">
         <h3 class="kicker">Contacts</h3>
-        <p class="muted">
-          For privacy-related questions, you can contact the developer at <a href="mailto:sashacx75@gmail.com">sashacx75@gmail.com</a>.
-        </p>
+        <p class="muted">Contact: <a href="mailto:sashacx75@gmail.com">sashacx75@gmail.com</a></p>
       </section>
     </div>
 
     <section class="card">
       <h3 class="kicker">Effective Date</h3>
-      <p class="muted">This policy is effective from <time datetime="2025-08-28">August 28, 2025</time> and may be updated as necessary. All changes will be reflected on this page.</p>
+      <p class="muted">Effective from <time datetime="2025-08-28">August 28, 2025</time>. Updates will appear on this page.</p>
     </section>
 
     <div class="footer">
@@ -231,7 +203,6 @@
   </div>
 
   <script>
-    // Set current year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>

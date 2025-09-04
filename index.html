@@ -59,10 +59,28 @@
     ul { margin: .5rem 0 0 1.2rem; padding: 0; } li { margin: .35rem 0; }
     .muted { color: var(--muted); }
     .footer { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; margin-top: 1.25rem; border-top: 1px solid rgba(148,163,184,.18); padding-top: 1rem; font-size: .95rem; color: var(--muted); }
-    .btn { display: inline-flex; align-items: center; gap: .5rem; background: transparent; color: white; border: 1px solid rgba(255,255,255,.4); padding: .45rem .8rem; border-radius: .6rem; cursor: pointer; transition: transform .08s ease, box-shadow .2s ease, background .2s ease; box-shadow: 0 0 0 0 var(--ring); text-decoration: none; font-size: .9rem; }
+    .btn {
+      display: inline-flex; 
+      align-items: center; 
+      gap: .4rem;
+      background: transparent; 
+      color: white;
+      border: 1px solid rgba(255,255,255,.4);
+      padding: .3rem .6rem;   /* уменьшенные отступы */
+      border-radius: .6rem; 
+      cursor: pointer;
+      font-size: .8rem;       /* меньше шрифт */
+      min-width: 70px;        /* кнопки компактные */
+      justify-content: center;
+    }
     .btn:hover { background: rgba(255,255,255,.1); } .btn:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
     .title-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .lang-switch { display: flex; flex-direction: column; /* было в строку, теперь в колонку */ gap: .5rem; }
+    .lang-switch { 
+      display: flex; 
+      flex-direction: column; /* вертикально */
+      gap: .4rem; 
+      align-items: flex-start; /* чтобы кнопки не растягивались */
+    }
     .flag-icon { width:18px; height:12px; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.2); }
   </style>
 </head>

@@ -62,7 +62,7 @@
     .btn { display: inline-flex; align-items: center; gap: .5rem; background: transparent; color: white; border: 1px solid rgba(255,255,255,.4); padding: .45rem .8rem; border-radius: .6rem; cursor: pointer; transition: transform .08s ease, box-shadow .2s ease, background .2s ease; box-shadow: 0 0 0 0 var(--ring); text-decoration: none; font-size: .9rem; }
     .btn:hover { background: rgba(255,255,255,.1); } .btn:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
     .title-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .lang-switch { display:flex; gap:.5rem; }
+    .lang-switch { display: flex; flex-direction: column; /* было в строку, теперь в колонку */ gap: .5rem; }
     .flag-icon { width:18px; height:12px; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.2); }
   </style>
 </head>

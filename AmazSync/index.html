@@ -54,31 +54,35 @@
     .card { background: var(--card); border-radius: 1rem; padding: 1.5rem 1.25rem; margin-top: 1.25rem; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.18); }
     .grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
     @media (min-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    .grid .card { margin-top: 1.25rem; }
     .badge { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .75rem; border-radius: 999px; background: var(--bg-soft); border: 1px solid rgba(148,163,184,.22); font-size: .9rem; color: var(--muted); }
     .kicker { text-transform: uppercase; letter-spacing: .14em; font-weight: 700; font-size: .78rem; color: var(--muted); margin: .25rem 0 1rem; }
     ul { margin: .5rem 0 0 1.2rem; padding: 0; } li { margin: .35rem 0; }
     .muted { color: var(--muted); }
+    a { color: var(--accent); }
+    .note { margin-top: 1rem; padding: .75rem 1rem; border-radius: .75rem; background: var(--bg-soft); border-left: 3px solid var(--accent); }
     .footer { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; margin-top: 1.25rem; border-top: 1px solid rgba(148,163,184,.18); padding-top: 1rem; font-size: .95rem; color: var(--muted); }
     .btn {
-      display: inline-flex; 
-      align-items: center; 
+      display: inline-flex;
+      align-items: center;
       gap: .4rem;
-      background: transparent; 
+      background: transparent;
       color: white;
       border: 1px solid rgba(255,255,255,.4);
       padding: .3rem .6rem;   /* уменьшенные отступы */
-      border-radius: .6rem; 
+      border-radius: .6rem;
       cursor: pointer;
       font-size: .8rem;       /* меньше шрифт */
       min-width: 70px;        /* кнопки компактные */
       justify-content: center;
     }
     .btn:hover { background: rgba(255,255,255,.1); } .btn:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+    .btn[aria-pressed="true"] { background: rgba(255,255,255,.2); }
     .title-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .lang-switch { 
-      display: flex; 
+    .lang-switch {
+      display: flex;
       flex-direction: column; /* вертикально */
-      gap: .4rem; 
+      gap: .4rem;
       align-items: flex-start; /* чтобы кнопки не растягивались */
     }
     .flag-icon { width:18px; height:12px; border-radius:2px; box-shadow:0 0 0 1px rgba(0,0,0,.2); }
@@ -94,12 +98,11 @@
   <div class="wrapper">
     <header>
       <div class="title-row">
-        <!-- HTML-блоки с текстом -->
-         <div style="display:flex; align-items:center; gap:0.6rem;">
-			<img src="images/app_logo.png" alt="App Logo" style="width:64px; height:64px; border-radius:15px; padding:0.1px; background:#000; box-shadow:0 2px 6px rgba(0,0,0,0.8);">
-			<h1 id="page-title" style="font-size:2rem;">AmazSync Privacy Policy</h1>
-		  </div>
-        <!-- HTML-кнопки переключения языков -->
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <img src="images/app_logo.png" alt="App Logo" style="width:64px; height:64px; border-radius:15px; padding:0.1px; background:#000; box-shadow:0 2px 6px rgba(0,0,0,0.8);">
+          <h1 id="page-title" data-i18n="title" style="font-size:2rem;">AmazSync Privacy Policy</h1>
+        </div>
+        <!-- Кнопки переключения языков -->
         <div class="lang-switch">
           <button class="btn" data-lang="en" aria-label="Switch to English">
             <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="flag-icon"> en
@@ -110,59 +113,74 @@
           <button class="btn" data-lang="uk" aria-label="Switch to Ukrainian">
             <img src="https://flagcdn.com/w20/ua.png" alt="UA" class="flag-icon"> ua
           </button>
-          <!--<button class="btn" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" class="flag-icon"> ru</button>
-          <button class="btn" data-lang="uk"><img src="https://flagcdn.com/w20/ua.png" class="flag-icon"> ua</button> -->
         </div>
       </div>
     </header>
 
-    <section id="details" class="card">
+    <!-- Тексты заполняются скриптом из словаря texts (атрибуты data-i18n / data-i18n-list) -->
+    <section class="card">
       <div class="badge" aria-hidden="true">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         Privacy First
       </div>
-      <h2 class="kicker" id="overview-title">Overview</h2>
-      <p id="overview-text">This is the privacy policy of the application. The app does not collect, receive, store, or process any confidential user data, nor any data from the user’s device.</p>
-      <ul id="overview-list">
-        <li>We do not perform tracking or use identifiers to follow the user.</li>
-        <li>No data is transferred to third parties or leaves the device.</li>
-        <li>Access to device functions is requested only when needed for a specific feature, and the information is never sent anywhere.</li>
-      </ul>
+      <h2 class="kicker" data-i18n="overviewTitle"></h2>
+      <p data-i18n="overview"></p>
+      <ul data-i18n-list="overviewList"></ul>
+    </section>
+
+    <section class="card">
+      <h2 class="kicker" data-i18n="howTitle"></h2>
+      <p data-i18n="how1"></p>
+      <p data-i18n="how2"></p>
+    </section>
+
+    <section class="card">
+      <h2 class="kicker" data-i18n="dataTitle"></h2>
+      <p data-i18n="dataIntro"></p>
+      <ul data-i18n-list="dataList"></ul>
+      <p class="muted" data-i18n="dataNot"></p>
+    </section>
+
+    <section class="card">
+      <h2 class="kicker" data-i18n="bgLocationTitle"></h2>
+      <p data-i18n="bgLocationText1"></p>
+      <p data-i18n="bgLocationText2"></p>
     </section>
 
     <div class="grid">
       <section class="card">
-        <h3 class="kicker" id="collection-title">Data Collection</h3>
-        <p id="collection-text">None. The app does not collect personal, sensitive, or technical data about the user or their device.</p>
+        <h3 class="kicker" data-i18n="storageTitle"></h3>
+        <p data-i18n="storage"></p>
       </section>
       <section class="card">
-        <h3 class="kicker" id="processing-title">Processing and Storage</h3>
-        <p id="processing-text">None. Any data generated during use remains locally in the device’s memory and is not saved.</p>
+        <h3 class="kicker" data-i18n="sharingTitle"></h3>
+        <p data-i18n="sharing"></p>
+        <p class="note" data-i18n="sharingNote"></p>
       </section>
       <section class="card">
-        <h3 class="kicker" id="sharing-title">Sharing with Third Parties</h3>
-        <p id="sharing-text">None. The app does not send any information to servers or share it with third parties.</p>
+        <h3 class="kicker" data-i18n="choicesTitle"></h3>
+        <ul data-i18n-list="choicesList"></ul>
       </section>
       <section class="card">
-        <h3 class="kicker" id="contacts-title">Contacts</h3>
-        <p class="muted" id="contacts-text">For privacy-related questions, you can contact the developer at <a href="mailto:sashacx75@gmail.com">sashacx75@gmail.com</a>.</p>
+        <h3 class="kicker" data-i18n="childrenTitle"></h3>
+        <p data-i18n="children"></p>
       </section>
     </div>
 
-	<section class="card">
-	  <h3 class="kicker" id="bg-location-title">Background Location Access</h3>
-	  <p id="bg-location-text-1">The application may access location data in the background. This feature is used only if the user explicitly enables it within the application and grants the required permissions in the device settings.</p>
-	  <p id="bg-location-text-2">Collected location data is not transmitted over external networks and remains on the device. It can only be accessed by applications installed on the device that are designed to interact with smartwatches, such as companion apps (for example, Zepp app).</p>
-	</section>
-
-    <section class="card">
-      <h3 class="kicker" id="effective-title">Effective Date</h3>
-      <p class="muted" id="effective-text">This policy is effective from <time datetime="2025-08-28">August 28, 2025</time> and may be updated as necessary. All changes will be reflected on this page.</p>
-    </section>
+    <div class="grid">
+      <section class="card">
+        <h3 class="kicker" data-i18n="contactsTitle"></h3>
+        <p class="muted"><span data-i18n="contacts"></span> <a href="mailto:sashacx75@gmail.com">sashacx75@gmail.com</a></p>
+      </section>
+      <section class="card">
+        <h3 class="kicker" data-i18n="effectiveTitle"></h3>
+        <p class="muted" data-i18n="effective"></p>
+      </section>
+    </div>
 
     <div class="footer">
-      <span>© <span id="y"></span> – AmazSync Privacy Policy</span>
-      <span>Last updated: <time datetime="2025-08-28">28 Aug 2025</time></span>
+      <span>© <span id="y"></span> – <span data-i18n="title"></span></span>
+      <span><span data-i18n="lastUpdated"></span> <time datetime="2026-10-29" data-i18n="date"></time></span>
     </div>
   </div>
 
@@ -170,91 +188,195 @@
   // Установка текущего года в футере
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // Тексты на разных языках
+  // Тексты на разных языках. Элементы списков: строка или [заголовок, текст]
   const texts = {
     en: {
       title: 'AmazSync Privacy Policy',
-      overview: 'This is the privacy policy of the application. The app does not collect, receive, store, or process any confidential user data, nor any data from the user’s device.',
+      overviewTitle: 'Overview',
+      overview: 'AmazSync is a companion app that makes information from your phone available to the “Phone info” app on your Amazfit (Zepp OS) watch and lets you control some phone functions from the watch. This policy explains what data the app accesses, how it is used and who can receive it.',
       overviewList: [
-        'We do not perform tracking or use identifiers to follow the user.',
-        'No data is transferred to third parties or leaves the device.',
-        'Access to device functions is requested only when needed for a specific feature, and the information is never sent anywhere.'
+        'The app has no servers, accounts, advertising or analytics, and does not track you.',
+        'AmazSync never sends your data to the internet, to the developer or to third parties.',
+        'Each type of data is accessed only if you enable the corresponding feature in the app and grant the required permission.'
       ],
-      collection: 'None. The app does not collect personal, sensitive, or technical data about the user or their device.',
-      processing: 'None. Any data generated during use remains locally in the device’s memory and is not saved.',
-      sharing: 'None. The app does not send any information to servers or share it with third parties.',
-      contacts: 'For privacy-related questions, you can contact the developer at sashacx75@gmail.com.',
-      effective: 'This policy is effective from August 28, 2025 and may be updated as necessary. All changes will be reflected on this page.',
-	  bgLocationTitle: 'Background Location Access',
-	  bgLocationText1: 'The application may access location data in the background. This feature is used only if the user explicitly enables it within the application and grants the required permissions in the device settings.',
-	  bgLocationText2: 'Collected location data is not transmitted over external networks and remains on the device. It can only be accessed by applications installed on the device that are designed to interact with smartwatches, such as companion apps (for example, Zepp app).',
+      howTitle: 'How the App Works',
+      how1: 'When you turn the server on, AmazSync runs a small local web server on your phone at 127.0.0.1:7667. This address is accessible only from inside the phone itself and cannot be reached from Wi-Fi, mobile or other networks.',
+      how2: 'The Zepp app requests data from this server and passes it to your watch via Bluetooth. Data is read at the moment of the request. Features you have not enabled return no data. You can stop the server at any time in the app or from its notification.',
+      dataTitle: 'Data the App Accesses',
+      dataIntro: 'Only when the corresponding feature is enabled:',
+      dataList: [
+        ['Battery', 'charge level and charging state.'],
+        ['Wi-Fi', 'name of the connected network (SSID), access point identifier (BSSID), signal strength and connection speed.'],
+        ['Sound and Do Not Disturb', 'ringer mode, Do Not Disturb mode and volume levels. At your request from the watch, the app changes these modes and the volume.'],
+        ['Multimedia', 'the currently playing track (title, artist, album, duration, position, cover art) and the name of the player app; playback control from the watch. This requires notification access, which is used only to find active media players. The app does not read, store or forward the content of your notifications.'],
+        ['Mobile network', 'operator name, network type and signal strength for each SIM card (requires the “Phone” permission).'],
+        ['Location', 'coordinates (approximate, or precise if you have granted precise location access), their accuracy and the time they were determined.'],
+        ['Calendar', 'events from the calendars you selected, within the period you set: title, start and end time, description, location, reminders, calendar name and the name of the account it belongs to. Access is read-only; the app never changes your calendar.']
+      ],
+      dataNot: 'The app does not access your contacts, messages, call history, phone number, device identifiers (such as IMEI), photos or files.',
+      bgLocationTitle: 'Background Location Access',
+      bgLocationText1: 'If you enable the “Coordinates (approximate)” feature, the app asks for permission to access location in the background (“Allow all the time”). This is needed so that the watch can receive coordinates when the AmazSync app is not open on the screen. Location is requested only when the watch asks for it; the app does not track your movements or keep a location history.',
+      bgLocationText2: 'The last determined location is kept only in the phone’s memory for up to one hour so that it does not have to be requested repeatedly. It is not transmitted over external networks by AmazSync.',
+      storageTitle: 'Storage',
+      storage: 'Data is read on request and is not saved: the app keeps no history of your data. Only the app settings (enabled features, notification options, selected calendars and the event period) are stored on the device. They are deleted when you clear the app data or uninstall the app.',
+      sharingTitle: 'Who Receives the Data',
+      sharing: 'Data is provided only to apps installed on the same phone, through the local server. AmazSync does not send it anywhere itself. After the Zepp app receives data and transfers it to the watch, the processing of this data is governed by the privacy policy of Zepp Health.',
+      sharingNote: 'Please note: Android does not allow restricting which installed apps can connect to a local server. While the server is running, any app on your phone can technically request the data of the enabled features. Enable only the features you need and stop the server when you are not using it.',
+      choicesTitle: 'Your Choices',
+      choicesList: [
+        'Turn individual features on or off in the app at any time.',
+        'Stop the server in the app or using the “Stop” button in its notification.',
+        'Revoke any permission in the Android settings (Settings → Apps → AmazSync → Permissions).',
+        'Clear the app data or uninstall the app to delete all its settings.'
+      ],
+      childrenTitle: 'Children',
+      children: 'The app is not directed at children under 13 and does not knowingly process their data.',
+      contactsTitle: 'Contacts',
+      contacts: 'For privacy-related questions, you can contact the developer:',
+      effectiveTitle: 'Effective Date',
+      effective: 'This version of the policy is effective from October 29, 2026. The policy may be updated when the app changes; all changes will be published on this page.',
+      lastUpdated: 'Last updated:',
+      date: 'Oct 29, 2026'
     },
     ru: {
       title: 'Политика конфиденциальности приложения AmazSync',
-      overview: 'Это политика конфиденциальности приложения. Приложение не собирает, не получает, не хранит и не обрабатывает конфиденциальные данные пользователя или устройства.',
+      overviewTitle: 'Общие положения',
+      overview: 'AmazSync — приложение-компаньон, которое делает информацию с вашего телефона доступной для приложения «Phone info» на часах Amazfit (Zepp OS) и позволяет управлять некоторыми функциями телефона с часов. В этой политике описано, к каким данным приложение получает доступ, как они используются и кто может их получить.',
       overviewList: [
-        'Мы не отслеживаем пользователя и не используем идентификаторы.',
-        'Данные не передаются третьим лицам и не покидают устройство.',
-        'Доступ к функциям устройства запрашивается только при необходимости для конкретной функции.'
+        'У приложения нет серверов, учётных записей, рекламы и аналитики, оно не отслеживает вас.',
+        'AmazSync никогда не отправляет ваши данные в интернет, разработчику или третьим лицам.',
+        'Доступ к каждому типу данных появляется, только если вы включили соответствующую функцию в приложении и выдали нужное разрешение.'
       ],
-      collection: 'Приложение не собирает личные, чувствительные или технические данные о пользователе или устройстве.',
-      processing: 'Любые данные, созданные во время использования, остаются локально в памяти устройства и не сохраняются.',
-      sharing: 'Приложение не отправляет информацию на серверы и не передает её третьим лицам.',
-      contacts: 'По вопросам конфиденциальности вы можете связаться с разработчиком: sashacx75@gmail.com.',
-      effective: 'Политика действует с 28 августа 2025 года и может быть обновлена при необходимости. Все изменения будут отображаться на этой странице.',
-	  bgLocationTitle: 'Доступ к геолокации в фоновом режиме',
-	  bgLocationText1: 'Приложение может получать данные о местоположении в фоновом режиме. Эта функция используется только в том случае, если пользователь явно включит её в приложении и предоставит необходимые разрешения в настройках устройства.',
-	  bgLocationText2: 'Полученные координаты не передаются во внешние сети и остаются на устройстве. Доступ к ним могут получить только приложения, установленные на устройстве и предназначенные для взаимодействия со смарт-часами, например, такие как приложение Zepp.',
+      howTitle: 'Как работает приложение',
+      how1: 'Когда вы включаете сервер, AmazSync запускает на телефоне небольшой локальный веб-сервер по адресу 127.0.0.1:7667. Этот адрес доступен только изнутри самого телефона, к нему нельзя подключиться из Wi-Fi, мобильной или другой сети.',
+      how2: 'Приложение Zepp запрашивает данные у этого сервера и передаёт их на часы по Bluetooth. Данные считываются в момент запроса. Функции, которые вы не включили, данных не возвращают. Сервер можно остановить в любой момент в приложении или из его уведомления.',
+      dataTitle: 'Какие данные использует приложение',
+      dataIntro: 'Только при включённой соответствующей функции:',
+      dataList: [
+        ['Батарея', 'уровень заряда и состояние зарядки.'],
+        ['Wi-Fi', 'название подключённой сети (SSID), идентификатор точки доступа (BSSID), уровень сигнала и скорость соединения.'],
+        ['Звук и «Не беспокоить»', 'режим звонка, режим «Не беспокоить» и уровни громкости. По вашей команде с часов приложение меняет эти режимы и громкость.'],
+        ['Мультимедиа', 'текущий трек (название, исполнитель, альбом, длительность, позиция, обложка) и название приложения-плеера; управление воспроизведением с часов. Для этого нужен доступ к уведомлениям, который используется только для поиска активных медиаплееров. Приложение не читает, не сохраняет и не передаёт содержимое ваших уведомлений.'],
+        ['Мобильная сеть', 'название оператора, тип сети и уровень сигнала для каждой SIM-карты (требуется разрешение «Телефон»).'],
+        ['Местоположение', 'координаты (приблизительные или точные, если вы разрешили точное местоположение), их точность и время определения.'],
+        ['Календарь', 'события из выбранных вами календарей за указанный период: название, время начала и окончания, описание, место, напоминания, название календаря и имя учётной записи, к которой он относится. Доступ только на чтение, приложение никогда не изменяет ваш календарь.']
+      ],
+      dataNot: 'Приложение не получает доступ к контактам, сообщениям, журналу звонков, номеру телефона, идентификаторам устройства (например, IMEI), фотографиям и файлам.',
+      bgLocationTitle: 'Доступ к геолокации в фоновом режиме',
+      bgLocationText1: 'Если вы включите функцию «Координаты (приблизительные)», приложение запросит разрешение на доступ к местоположению в фоновом режиме («Разрешить в любом режиме»). Это нужно, чтобы часы могли получать координаты, когда приложение AmazSync не открыто на экране. Местоположение определяется только по запросу часов; приложение не отслеживает ваши перемещения и не ведёт историю местоположений.',
+      bgLocationText2: 'Последнее определённое местоположение хранится только в памяти телефона не дольше одного часа, чтобы не запрашивать его повторно. AmazSync не передаёт его во внешние сети.',
+      storageTitle: 'Хранение',
+      storage: 'Данные считываются по запросу и не сохраняются: приложение не ведёт историю ваших данных. На устройстве хранятся только настройки приложения (включённые функции, параметры уведомления, выбранные календари и период событий). Они удаляются при очистке данных или удалении приложения.',
+      sharingTitle: 'Кто получает данные',
+      sharing: 'Данные предоставляются только приложениям, установленным на этом же телефоне, через локальный сервер. Сам AmazSync никуда их не отправляет. После того как приложение Zepp получило данные и передало их на часы, их обработка регулируется политикой конфиденциальности Zepp Health.',
+      sharingNote: 'Обратите внимание: Android не позволяет ограничить, какие установленные приложения могут подключаться к локальному серверу. Пока сервер работает, любое приложение на вашем телефоне технически может запросить данные включённых функций. Включайте только нужные функции и останавливайте сервер, когда он не используется.',
+      choicesTitle: 'Ваш выбор',
+      choicesList: [
+        'Включайте и выключайте отдельные функции в приложении в любой момент.',
+        'Останавливайте сервер в приложении или кнопкой «Остановить» в его уведомлении.',
+        'Отзывайте любые разрешения в настройках Android (Настройки → Приложения → AmazSync → Разрешения).',
+        'Очистите данные или удалите приложение, чтобы удалить все его настройки.'
+      ],
+      childrenTitle: 'Дети',
+      children: 'Приложение не предназначено для детей младше 13 лет и сознательно не обрабатывает их данные.',
+      contactsTitle: 'Контакты',
+      contacts: 'По вопросам конфиденциальности вы можете связаться с разработчиком:',
+      effectiveTitle: 'Дата вступления в силу',
+      effective: 'Эта редакция политики действует с 29 октября 2026 года. Политика может обновляться при изменении приложения; все изменения будут опубликованы на этой странице.',
+      lastUpdated: 'Последнее обновление:',
+      date: '29.10.2026'
     },
     uk: {
       title: 'Політика конфіденційності додатку AmazSync',
-      overview: 'Ця політика конфіденційності додатку. Додаток не збирає, не отримує, не зберігає та не обробляє конфіденційні дані користувача або пристрою.',
+      overviewTitle: 'Загальні положення',
+      overview: 'AmazSync — додаток-компаньйон, який робить інформацію з вашого телефона доступною для додатку «Phone info» на годиннику Amazfit (Zepp OS) і дозволяє керувати деякими функціями телефона з годинника. У цій політиці описано, до яких даних додаток отримує доступ, як вони використовуються і хто може їх отримати.',
       overviewList: [
-        'Ми не відстежуємо користувача та не використовуємо ідентифікатори.',
-        'Дані не передаються третім особам і не залишають пристрій.',
-        'Доступ до функцій пристрою запитується лише за потребою для конкретної функції.'
+        'Додаток не має серверів, облікових записів, реклами та аналітики, він не відстежує вас.',
+        'AmazSync ніколи не надсилає ваші дані в інтернет, розробнику чи третім особам.',
+        'Доступ до кожного типу даних з’являється, лише якщо ви увімкнули відповідну функцію в додатку та надали потрібний дозвіл.'
       ],
-      collection: 'Додаток не збирає персональні, чутливі або технічні дані користувача або пристрою.',
-      processing: 'Будь-які дані, створені під час використання, залишаються локально в пам’яті пристрою і не зберігаються.',
-      sharing: 'Додаток не надсилає інформацію на сервери і не передає її третім особам.',
-      contacts: 'Щодо конфіденційності можна звертатися до розробника: sashacx75@gmail.com.',
-      effective: 'Політика діє з 28 серпня 2025 року і може бути оновлена при необхідності. Усі зміни будуть відображені на цій сторінці.',
-	  bgLocationTitle: 'Доступ до геолокації у фоновому режимі',
-	  bgLocationText1: 'Додаток може отримувати дані про місцезнаходження у фоновому режимі. Ця функція використовується лише у випадку, якщо користувач явно увімкне її в додатку та надасть необхідні дозволи в налаштуваннях пристрою.',
-	  bgLocationText2: 'Отримані координати не передаються у зовнішні мережі та залишаються на пристрої. Доступ до них можуть отримати лише додатки, встановлені на пристрої та призначені для взаємодії зі смарт-годинниками, наприклад, такі як додаток Zepp.',
+      howTitle: 'Як працює додаток',
+      how1: 'Коли ви вмикаєте сервер, AmazSync запускає на телефоні невеликий локальний вебсервер за адресою 127.0.0.1:7667. Ця адреса доступна лише всередині самого телефона, до неї неможливо підключитися з Wi-Fi, мобільної чи іншої мережі.',
+      how2: 'Додаток Zepp запитує дані в цього сервера та передає їх на годинник через Bluetooth. Дані зчитуються в момент запиту. Функції, які ви не увімкнули, даних не повертають. Сервер можна зупинити будь-коли в додатку або з його сповіщення.',
+      dataTitle: 'Які дані використовує додаток',
+      dataIntro: 'Лише за увімкненої відповідної функції:',
+      dataList: [
+        ['Батарея', 'рівень заряду та стан заряджання.'],
+        ['Wi-Fi', 'назва підключеної мережі (SSID), ідентифікатор точки доступу (BSSID), рівень сигналу та швидкість з’єднання.'],
+        ['Звук і «Не турбувати»', 'режим дзвінка, режим «Не турбувати» та рівні гучності. За вашою командою з годинника додаток змінює ці режими та гучність.'],
+        ['Мультимедіа', 'поточний трек (назва, виконавець, альбом, тривалість, позиція, обкладинка) і назва додатку-плеєра; керування відтворенням з годинника. Для цього потрібен доступ до сповіщень, який використовується лише для пошуку активних медіаплеєрів. Додаток не читає, не зберігає та не передає вміст ваших сповіщень.'],
+        ['Мобільна мережа', 'назва оператора, тип мережі та рівень сигналу для кожної SIM-картки (потрібен дозвіл «Телефон»).'],
+        ['Місцезнаходження', 'координати (приблизні або точні, якщо ви дозволили точне місцезнаходження), їхня точність і час визначення.'],
+        ['Календар', 'події з вибраних вами календарів за вказаний період: назва, час початку й завершення, опис, місце, нагадування, назва календаря та ім’я облікового запису, до якого він належить. Доступ лише на читання, додаток ніколи не змінює ваш календар.']
+      ],
+      dataNot: 'Додаток не отримує доступу до контактів, повідомлень, журналу дзвінків, номера телефона, ідентифікаторів пристрою (наприклад, IMEI), фотографій і файлів.',
+      bgLocationTitle: 'Доступ до геолокації у фоновому режимі',
+      bgLocationText1: 'Якщо ви увімкнете функцію «Координати (приблизні)», додаток запитає дозвіл на доступ до місцезнаходження у фоновому режимі («Дозволяти завжди»). Це потрібно, щоб годинник міг отримувати координати, коли додаток AmazSync не відкритий на екрані. Місцезнаходження визначається лише на запит годинника; додаток не відстежує ваші переміщення і не веде історію місцезнаходжень.',
+      bgLocationText2: 'Останнє визначене місцезнаходження зберігається лише в пам’яті телефона не довше однієї години, щоб не запитувати його повторно. AmazSync не передає його у зовнішні мережі.',
+      storageTitle: 'Зберігання',
+      storage: 'Дані зчитуються на запит і не зберігаються: додаток не веде історію ваших даних. На пристрої зберігаються лише налаштування додатку (увімкнені функції, параметри сповіщення, вибрані календарі та період подій). Вони видаляються під час очищення даних або видалення додатку.',
+      sharingTitle: 'Хто отримує дані',
+      sharing: 'Дані надаються лише додаткам, встановленим на цьому ж телефоні, через локальний сервер. Сам AmazSync нікуди їх не надсилає. Після того як додаток Zepp отримав дані та передав їх на годинник, їх обробка регулюється політикою конфіденційності Zepp Health.',
+      sharingNote: 'Зверніть увагу: Android не дозволяє обмежити, які встановлені додатки можуть підключатися до локального сервера. Поки сервер працює, будь-який додаток на вашому телефоні технічно може запитати дані увімкнених функцій. Вмикайте лише потрібні функції та зупиняйте сервер, коли він не використовується.',
+      choicesTitle: 'Ваш вибір',
+      choicesList: [
+        'Вмикайте та вимикайте окремі функції в додатку будь-коли.',
+        'Зупиняйте сервер у додатку або кнопкою «Зупинити» в його сповіщенні.',
+        'Відкликайте будь-які дозволи в налаштуваннях Android (Налаштування → Додатки → AmazSync → Дозволи).',
+        'Очистьте дані або видаліть додаток, щоб видалити всі його налаштування.'
+      ],
+      childrenTitle: 'Діти',
+      children: 'Додаток не призначений для дітей віком до 13 років і свідомо не обробляє їхні дані.',
+      contactsTitle: 'Контакти',
+      contacts: 'З питань конфіденційності ви можете зв’язатися з розробником:',
+      effectiveTitle: 'Дата набрання чинності',
+      effective: 'Ця редакція політики діє з 29 жовтня 2026 року. Політика може оновлюватися в разі змін у додатку; усі зміни будуть опубліковані на цій сторінці.',
+      lastUpdated: 'Останнє оновлення:',
+      date: '29.10.2026'
     }
   };
 
-  // Функция обновления текста страницы
+  // Обновление текста страницы
   function updateLanguage(lang) {
-    const t = texts[lang] || texts.en;
-    document.getElementById('page-title').textContent = t.title;
-    document.getElementById('overview-text').textContent = t.overview;
-    
-    const overviewListEl = document.getElementById('overview-list');
-    overviewListEl.innerHTML = '';
-    t.overviewList.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      overviewListEl.appendChild(li);
+    if (!texts[lang]) lang = 'en';
+    const t = texts[lang];
+    document.documentElement.lang = lang;
+    document.title = t.title;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = t[el.getAttribute('data-i18n')];
     });
 
-    document.getElementById('collection-text').textContent = t.collection;
-    document.getElementById('processing-text').textContent = t.processing;
-    document.getElementById('sharing-text').textContent = t.sharing;
-    document.getElementById('contacts-text').textContent = t.contacts;
-    document.getElementById('effective-text').textContent = t.effective;
-	
-	document.getElementById('bg-location-title').textContent = t.bgLocationTitle;
-	document.getElementById('bg-location-text-1').textContent = t.bgLocationText1;
-	document.getElementById('bg-location-text-2').textContent = t.bgLocationText2;
+    document.querySelectorAll('[data-i18n-list]').forEach(listEl => {
+      listEl.innerHTML = '';
+      t[listEl.getAttribute('data-i18n-list')].forEach(item => {
+        const li = document.createElement('li');
+        if (Array.isArray(item)) {
+          const b = document.createElement('b');
+          b.textContent = item[0] + ': ';
+          li.appendChild(b);
+          li.appendChild(document.createTextNode(item[1]));
+        } else {
+          li.textContent = item;
+        }
+        listEl.appendChild(li);
+      });
+    });
+
+    document.querySelectorAll('.lang-switch .btn').forEach(btn => {
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
   }
 
   // Назначение обработчиков клика на кнопки
   document.querySelectorAll('.lang-switch .btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      updateLanguage(lang);
-    });
+    btn.addEventListener('click', () => updateLanguage(btn.getAttribute('data-lang')));
   });
+
+  // Язык по умолчанию: ?lang=ru|uk|en, иначе язык браузера
+  const params = new URLSearchParams(location.search);
+  const browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+  updateLanguage(params.get('lang') || browserLang);
 </script>
+</body>
+</html>
